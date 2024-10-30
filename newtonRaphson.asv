@@ -1,0 +1,20 @@
+%@authors: Mateo Garcia
+%Newton-Raphson method
+function [] = newtonRaphson(intialValue)
+    %get an initial value and represents it
+    syms x;
+    y = x.^3 - 2*x -5;
+    y_prime = diff(y);
+    x_va
+    x_values(1) = intialValue;
+    i = 2;
+    while(x_values(i) ~= x_values(i - 1))
+        x_values(i) = round ( x_values(i - 1) - double(subs(y,x,x_values(i - 1)))/double(subs(y_prime,x,x_values(i - 1))), 4);
+        i = i + 1;
+    end
+
+    disp(x_values)
+    %Finally plot the function
+    x_space = linspace(-20, 100, 20);
+
+end

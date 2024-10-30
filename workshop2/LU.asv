@@ -1,0 +1,21 @@
+function x = LU(A,B)
+    [srow, scol] = size(A);
+    if (srow ~= scol)
+        error('A debe ser una matriz cuadrada');
+    end
+    disp()
+    L = eye(srow)
+    U = A;
+    
+    for i = 1:srow-1
+        for j = i+1:srow
+            factor = U(j, i) / U(i, i);
+            U(j, :) = U(j, :) - factor * U(i, :);
+            L(j, i) = factor;
+        end
+    end
+
+    y = L \ B;
+    
+    x = U \ y;
+end

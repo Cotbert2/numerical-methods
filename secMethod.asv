@@ -1,0 +1,13 @@
+function [] = secMethod(x_1, x_2)
+
+    x_values(1) =  x_1;
+    x_values(2) =  x_2;
+
+    syms x;
+    y = x.^3 + 2 * x.^2 + 10 * x - 20;
+
+    for i = 1 : 10
+        r = (x_values(i) * subs(y, x_values(i + 1)) - x_values(i + 1) * subs(y, x_values(i) )/(subs(y, x_values(i + 1)) - subs(y, x_values(i))));
+    end
+
+end
